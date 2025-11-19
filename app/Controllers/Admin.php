@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ResidentModel;
+use Dompdf\Dompdf;
 
 class Admin extends BaseController
 {
@@ -209,5 +210,53 @@ class Admin extends BaseController
 
         return redirect()->to('/admin/residents')
             ->with('error', 'Gagal menghapus data penduduk');
+    }
+
+    public function exportPdf()
+    {
+        try {
+            // Get filters from request
+            $search = $this->request->getGet('search') ?? '';
+            $desa = $this->request->getGet('desa') ?? 'all';
+            $gender = $this->request->getGet('gender') ?? 'all';
+
+            // Get filtered residents
+            $residents = $this->residentModel->searchResidents($search, $desa, $gender);
+
+            // Prepare data for PDF
+            $data = [
+                'title' => 'Data Penduduk Kecamatan Madidir',
+                'residents' => $residents,
+                'search' => $search,
+                'selectedDesa' => $desa,
+                'selectedGender' => $gender,
+                'generatedDate' => date('d F Y H:i:s'),
+                'totalData' => count($residents)
+            ];
+
+            // Load DomPDF
+            $dompdf = new Dompdf();
+            
+            // Load HTML content
+            $html = view('admin/pdf_residents', $data);
+            
+            // Configure DomPDF
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'landscape');
+            
+            // Render PDF
+            $dompdf->render();
+            
+            // Generate filename
+            $filename = 'Data_Penduduk_' . date('Y-m-d_His') . '.pdf';
+            
+            // Output PDF for download
+            $dompdf->stream($filename, ['Attachment' => true]);
+            exit();
+        } catch (\Exception $e) {
+            log_message('error', 'PDF Export Error: ' . $e->getMessage());
+            return redirect()->to('/admin/residents')
+                ->with('error', 'Gagal mengekspor PDF: ' . $e->getMessage());
+        }
     }
 }

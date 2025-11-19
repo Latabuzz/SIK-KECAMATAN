@@ -30,4 +30,5 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('residents/edit/(:num)', 'Admin::edit/$1');
     $routes->post('residents/update/(:num)', 'Admin::update/$1');
     $routes->get('residents/delete/(:num)', 'Admin::delete/$1');
+    $routes->get('residents/export-pdf', 'Admin::exportPdf');
 });
