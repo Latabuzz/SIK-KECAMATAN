@@ -83,13 +83,6 @@
                     Kembali ke Halaman Utama
                 </a>
             </form>
-
-            <!-- Demo credentials info -->
-            <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <p class="text-sm text-blue-800 font-semibold mb-2">Demo Akun:</p>
-                <p class="text-sm text-blue-700">Username: admin</p>
-                <p class="text-sm text-blue-700">Password: admin123</p>
-            </div>
         </div>
 
         <p class="text-center text-white text-sm">

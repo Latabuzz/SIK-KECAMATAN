@@ -21,9 +21,6 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::processLogin');
 $routes->get('/logout', 'Auth::logout');
 
-// Test Route (Remove in production)
-$routes->get('/test-data', 'TestData::index');
-
 // Admin Routes (Protected)
 $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('dashboard', 'Admin::dashboard');
