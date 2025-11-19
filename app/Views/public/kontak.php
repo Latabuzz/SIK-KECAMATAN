@@ -7,49 +7,49 @@
     <?= $this->include('public/partials/welcome_banner') ?>
     <?= $this->include('public/partials/tabs', ['active' => 'kontak']) ?>
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         <!-- Contact Form -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-6">Hubungi Kami</h2>
-            <form action="<?= base_url('/kontak/submit') ?>" method="post" class="space-y-4">
+        <div class="bg-white rounded-lg shadow-md p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-4 md:mb-6">Hubungi Kami</h2>
+            <form action="<?= base_url('/kontak/submit') ?>" method="post" class="space-y-3 md:space-y-4">
                 <?= csrf_field() ?>
                 
                 <div>
-                    <label for="nama" class="block text-sm font-medium mb-2">Nama Lengkap <span class="text-red-500">*</span></label>
+                    <label for="nama" class="block text-xs md:text-sm font-medium mb-2">Nama Lengkap <span class="text-red-500">*</span></label>
                     <input type="text" id="nama" name="nama" required 
-                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                           class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500"
                            placeholder="Masukkan nama lengkap Anda">
                 </div>
 
                 <div>
-                    <label for="email" class="block text-sm font-medium mb-2">Email <span class="text-red-500">*</span></label>
+                    <label for="email" class="block text-xs md:text-sm font-medium mb-2">Email <span class="text-red-500">*</span></label>
                     <input type="email" id="email" name="email" required 
-                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                           class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500"
                            placeholder="nama@email.com">
                 </div>
 
                 <div>
-                    <label for="telepon" class="block text-sm font-medium mb-2">Nomor Telepon</label>
+                    <label for="telepon" class="block text-xs md:text-sm font-medium mb-2">Nomor Telepon</label>
                     <input type="tel" id="telepon" name="telepon" 
-                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                           class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500"
                            placeholder="08xx-xxxx-xxxx">
                 </div>
 
                 <div>
-                    <label for="subjek" class="block text-sm font-medium mb-2">Subjek <span class="text-red-500">*</span></label>
+                    <label for="subjek" class="block text-xs md:text-sm font-medium mb-2">Subjek <span class="text-red-500">*</span></label>
                     <input type="text" id="subjek" name="subjek" required 
-                           class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                           class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500"
                            placeholder="Perihal pesan Anda">
                 </div>
 
                 <div>
-                    <label for="pesan" class="block text-sm font-medium mb-2">Pesan <span class="text-red-500">*</span></label>
+                    <label for="pesan" class="block text-xs md:text-sm font-medium mb-2">Pesan <span class="text-red-500">*</span></label>
                     <textarea id="pesan" name="pesan" rows="5" required 
-                              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                              class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500"
                               placeholder="Tulis pesan Anda di sini..."></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 md:py-3 rounded-lg text-sm md:text-base font-medium flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
@@ -59,12 +59,12 @@
         </div>
 
         <!-- Contact Information -->
-        <div class="space-y-6">
+        <div class="space-y-4 md:space-y-6">
             <!-- Office Info -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-bold mb-4">Informasi Kantor</h3>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4">Informasi Kantor</h3>
+                <div class="space-y-3 md:space-y-4">
+                    <div class="flex items-start gap-2 md:gap-3">
                         <div class="bg-blue-100 p-2 rounded-lg flex-shrink-0">
                             <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -72,12 +72,12 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="font-medium">Alamat</p>
-                            <p class="text-gray-600 text-sm">Jalan Babe Palar, No. 91<br>Paceda, Madidir, Madidir Ure<br>Kota Bitung, Sulawesi Utara</p>
+                            <p class="text-sm md:text-base font-medium">Alamat</p>
+                            <p class="text-gray-600 text-xs md:text-sm">Jalan Babe Palar, No. 91<br>Paceda, Madidir, Madidir Ure<br>Kota Bitung, Sulawesi Utara</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-3">
+                    <div class="flex items-start gap-2 md:gap-3">
                         <div class="bg-green-100 p-2 rounded-lg flex-shrink-0">
                             <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -116,17 +116,17 @@
             </div>
 
             <!-- Social Media -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-bold mb-4">Media Sosial</h3>
-                <div class="space-y-3">
-                    <a href="#" class="flex items-center gap-3 p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition">
-                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4">Media Sosial</h3>
+                <div class="space-y-2 md:space-y-3">
+                    <a href="#" class="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
-                        <span class="font-medium">Facebook: @KecamatanMadidir</span>
+                        <span class="text-sm md:text-base font-medium">Facebook: @KecamatanMadidir</span>
                     </a>
-                    <a href="#" class="flex items-center gap-3 p-3 bg-sky-50 hover:bg-sky-100 rounded-lg transition">
-                        <svg class="w-6 h-6 text-sky-500" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="#" class="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-sky-50 hover:bg-sky-100 rounded-lg transition">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 text-sky-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                         </svg>
                         <span class="font-medium">Twitter: @MadidirOfficial</span>
@@ -141,9 +141,9 @@
             </div>
 
             <!-- Map -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-bold mb-4">Lokasi Kantor</h3>
-                <div class="rounded-lg overflow-hidden h-64">
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4">Lokasi Kantor</h3>
+                <div class="rounded-lg overflow-hidden h-48 md:h-64">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7234!2d125.1234!3d1.4567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjcnMjQuMSJOIDEyNcKwMDcnMjQuMyJF!5e0!3m2!1sid!2sid!4v1234567890!5m2!1sid!2sid&q=Jalan+Babe+Palar+No.+91+Paceda+Madidir+Bitung"
                         width="100%" 

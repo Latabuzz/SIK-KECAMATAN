@@ -8,30 +8,30 @@
     <?= $this->include('public/partials/tabs', ['active' => 'data']) ?>
 
     <!-- Data Penduduk Table -->
-    <div class="bg-white rounded-lg shadow-md p-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-            <h2 class="text-2xl font-bold">Data Penduduk Kecamatan Madidir</h2>
+    <div class="bg-white rounded-lg shadow-md p-4 md:p-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 gap-3 md:gap-4">
+            <h2 class="text-lg md:text-2xl font-bold">Data Penduduk Kecamatan Madidir</h2>
             <div class="flex gap-2">
-                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm flex items-center gap-1 md:gap-2">
+                    <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
                     </svg>
-                    Cetak
+                    <span class="hidden sm:inline">Cetak</span>
                 </button>
             </div>
         </div>
 
         <!-- Filter Form -->
-        <form method="get" class="mb-6 grid md:grid-cols-3 gap-4">
+        <form method="get" class="mb-4 md:mb-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
             <div>
-                <label class="block text-sm font-medium mb-2">Pencarian</label>
+                <label class="block text-xs md:text-sm font-medium mb-2">Pencarian</label>
                 <input type="text" name="search" value="<?= esc($search ?? '') ?>" 
                        placeholder="Cari NIK atau Nama..." 
-                       class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                       class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500">
             </div>
             <div>
-                <label class="block text-sm font-medium mb-2">Desa</label>
-                <select name="desa" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <label class="block text-xs md:text-sm font-medium mb-2">Desa</label>
+                <select name="desa" class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500">
                     <option value="">Semua Desa</option>
                     <?php foreach($villages as $village): ?>
                         <option value="<?= esc($village) ?>" <?= ($selectedDesa ?? '') == $village ? 'selected' : '' ?>>
@@ -41,36 +41,36 @@
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium mb-2">Jenis Kelamin</label>
-                <select name="gender" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <label class="block text-xs md:text-sm font-medium mb-2">Jenis Kelamin</label>
+                <select name="gender" class="w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500">
                     <option value="">Semua</option>
                     <option value="Laki-laki" <?= ($selectedGender ?? '') == 'Laki-laki' ? 'selected' : '' ?>>Laki-laki</option>
                     <option value="Perempuan" <?= ($selectedGender ?? '') == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
                 </select>
             </div>
             <div class="md:col-span-3 flex gap-2">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
-                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-2 rounded-lg text-sm md:text-base">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                     Filter
                 </button>
-                <a href="<?= base_url('/data') ?>" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg">Reset</a>
+                <a href="<?= base_url('/data') ?>" class="bg-gray-500 hover:bg-gray-600 text-white px-4 md:px-6 py-2 rounded-lg text-sm md:text-base">Reset</a>
             </div>
         </form>
 
         <!-- Table -->
-        <div class="overflow-x-auto">
-            <table class="w-full">
+        <div class="overflow-x-auto -mx-4 md:mx-0">
+            <table class="w-full min-w-max">
                 <thead class="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">No</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">NIK</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jenis Kelamin</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Desa</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pekerjaan</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">No</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">NIK</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase hidden sm:table-cell">Jenis Kelamin</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">Desa</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase hidden md:table-cell">Pekerjaan</th>
+                        <th class="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -86,19 +86,19 @@
                     <?php else: ?>
                         <?php foreach($residents as $index => $resident): ?>
                             <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-sm"><?= $index + 1 ?></td>
-                                <td class="px-4 py-3 text-sm font-mono"><?= esc($resident['nik']) ?></td>
-                                <td class="px-4 py-3 text-sm font-medium"><?= esc($resident['nama']) ?></td>
-                                <td class="px-4 py-3 text-sm">
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm"><?= $index + 1 ?></td>
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm font-mono"><?= esc($resident['nik']) ?></td>
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium"><?= esc($resident['nama']) ?></td>
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm hidden sm:table-cell">
                                     <?php if($resident['jenis_kelamin'] == 'Laki-laki'): ?>
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Laki-laki</span>
+                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">L</span>
                                     <?php else: ?>
-                                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">Perempuan</span>
+                                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">P</span>
                                     <?php endif; ?>
                                 </td>
-                                <td class="px-4 py-3 text-sm"><?= esc($resident['desa']) ?></td>
-                                <td class="px-4 py-3 text-sm"><?= esc($resident['pekerjaan']) ?></td>
-                                <td class="px-4 py-3 text-sm">
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm"><?= esc($resident['desa']) ?></td>
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm hidden md:table-cell"><?= esc($resident['pekerjaan']) ?></td>
+                                <td class="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm">
                                     <button onclick="showDetail(<?= $resident['id'] ?>)" class="text-blue-600 hover:text-blue-800 font-medium">
                                         Detail
                                     </button>
@@ -112,7 +112,7 @@
 
         <!-- Pagination Info -->
         <?php if(!empty($residents)): ?>
-            <div class="mt-4 text-sm text-gray-600">
+            <div class="mt-4 text-xs md:text-sm text-gray-600">
                 Menampilkan <?= count($residents) ?> data penduduk
             </div>
         <?php endif; ?>
